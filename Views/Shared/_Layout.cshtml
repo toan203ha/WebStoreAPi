@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebStore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site-layout.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>WebStore</h3>
+                <button id="sidebarToggle" class="sidebar-toggle btn btn-primary d-md-none" onclick="toggleSidebar()">
+                    ☰
+                </button>
+            </div>
+            <ul class="list-unstyled">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li><a href="@Url.Action("Index", "Product")">Sản Phẩm</a></li>
+                <li><a href="@Url.Action("Index", "Users")">Thông Tin Người dùng</a></li>
+                <li><a href="@Url.Action("Index", "Oder")">Đơn Hàng</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Thống Kê</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Nhân Viên</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Nhà xuất bản</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Khuyễn Mãi</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Danh Mục</a></li>
+
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <div id="main-content" class="flex-grow-1">
+            <!-- Hamburger Button for Large Screens -->
+            <button id="sidebarToggleLarge" class="" onclick="toggleSidebar()">
+                ☰
+            </button>
+
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - WebStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById('sidebar');
+            var mainContent = document.getElementById('main-content');
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
+        }
+    </script>
+</body>
+</html>

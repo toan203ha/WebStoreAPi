@@ -1,0 +1,78 @@
+﻿@model IEnumerable<WebStore.Models.Users>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+    <script>
+        function confirmDelete(event, userId) {
+            event.preventDefault();
+            if (confirm("Bạn có chắc chắn muốn xóa người dùng này không?")) {
+                document.getElementById("delete-form-" + userId).submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Users</h1>
+    <button id="createUserBtn">Create New User</button>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>PhoneNumber</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user._id</td>
+                    <td>@user.Email</td>
+                    <td>@user.Password</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@Html.ActionLink("Chi Tiết", "ThongTinTK", new { id = user._id })</td>
+                    <td>@Html.ActionLink("Chỉnh Sửa", "EditUser", new { id = user._id })</td>
+                    <td>
+                        <form id="delete-form-@user._id" action="@Url.Action("DeleteUser", "Users", new { id = user._id })" method="post" style="display:inline;">
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <a href="#" onclick="confirmDelete(event, '@user._id')">Delete</a>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Create User Modal -->
+    <div id="createUserModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; box-shadow:0px 0px 10px rgba(0,0,0,0.1);">
+        <h2>Create New User</h2>
+        <form id="createUserForm" method="post" action="@Url.Action("CreateUser", "Users")">
+            <label>Email:</label>
+            <input type="email" name="Email" required /><br />
+
+            <label>Password:</label>
+            <input type="password" name="Password" required /><br />
+
+            <label>Phone Number:</label>
+            <input type="text" name="PhoneNumber" required /><br />
+
+            <button type="submit">Create</button>
+            <button type="button" onclick="closeCreateUserModal()">Cancel</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("createUserBtn").addEventListener("click", function () {
+            document.getElementById("createUserModal").style.display = "block";
+        });
+
+        function closeCreateUserModal() {
+            document.getElementById("createUserModal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

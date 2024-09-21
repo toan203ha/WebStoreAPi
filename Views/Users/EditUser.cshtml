@@ -1,0 +1,60 @@
+﻿@model WebStore.Models.Users
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chỉnh Sửa Người Dùng</title>
+</head>
+<body>
+    <h1>Chỉnh Sửa Thông Tin Người Dùng</h1>
+
+    @using (Html.BeginForm("EditUser", "Users", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.LabelFor(m => m._id)
+            @Html.EditorFor(m => m._id, new { @readonly = "readonly" })
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Email)
+            @Html.EditorFor(m => m.Email)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Password)
+            @Html.EditorFor(m => m.Password)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.PhoneNumber)
+            @Html.EditorFor(m => m.PhoneNumber)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.Img)
+            @Html.EditorFor(m => m.Img)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.tenuser)
+            @Html.EditorFor(m => m.tenuser)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.diaChi)
+            @Html.EditorFor(m => m.diaChi)
+        </div>
+
+        <div>
+            @Html.LabelFor(m => m.genderCus)
+            @Html.EditorFor(m => m.genderCus)
+        </div>
+
+        <button type="submit">Cập Nhật</button>
+    }
+
+    <a href="@Url.Action("Index")">Quay lại danh sách người dùng</a>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿@model WebStore.Models.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<div class="container mt-4">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="CreatePro" method="post">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Create New Product</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="TEN" class="form-label">Product Name</label>
+                            <input asp-for="TEN" class="form-control" placeholder="Enter product name" />
+                            <span asp-validation-for="TEN" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="PRICE" class="form-label">Price</label>
+                            <input asp-for="PRICE" class="form-control" placeholder="Enter price" />
+                            <span asp-validation-for="PRICE" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="SoluongTon" class="form-label">Quantity In Stock</label>
+                            <input asp-for="SoluongTon" class="form-control" placeholder="Enter quantity in stock" />
+                            <span asp-validation-for="SoluongTon" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="DES" class="form-label">Description</label>
+                            <textarea asp-for="DES" class="form-control" rows="4" placeholder="Enter product description"></textarea>
+                            <span asp-validation-for="DES" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="SoLuongGG" class="form-label">Discount Quantity</label>
+                            <input asp-for="SoLuongGG" class="form-control" placeholder="Enter discount quantity" />
+                            <span asp-validation-for="SoLuongGG" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="CateID" class="form-label">Category ID</label>
+                            <input asp-for="CateID" class="form-control" placeholder="Enter category ID" />
+                            <span asp-validation-for="CateID" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="MaNXB" class="form-label">Publisher ID</label>
+                            <input asp-for="MaNXB" class="form-control" placeholder="Enter publisher ID" />
+                            <span asp-validation-for="MaNXB" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="IMG" class="form-label">Image (Base64)</label>
+                            <input asp-for="IMG" class="form-control" placeholder="Enter image in Base64 format" />
+                            <span asp-validation-for="IMG" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">Create Product</button>
+                    <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Optional: Add Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

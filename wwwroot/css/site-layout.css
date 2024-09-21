@@ -1,0 +1,112 @@
+﻿/* wwwroot/css/site-layout.css */
+
+/* Style cho sidebar */
+.sidebar {
+    background-color: #f8f9fa;
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-right: 1px solid #ddd;
+    transition: transform 0.3s ease, width 0.3s ease;
+    z-index: 1000; /* Đảm bảo sidebar nằm trên các phần tử khác */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    background: #343a40;
+    color: white;
+    height: 60px;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Nút hamburger không có hiệu ứng hover */
+.sidebar-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Các mục menu */
+.sidebar ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding-left: 15px;
+  /* // font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;*/
+    font-weight:bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Hiệu ứng hover cho các mục menu */
+.sidebar ul li:hover {
+    background-color: #e9ecef;
+}
+
+.sidebar ul li a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 4px; /* Bo góc cho hiệu ứng chọn */
+}
+
+/* Hiệu ứng chọn cho mục menu */
+.sidebar ul li.active {
+    background-color: #007bff;
+}
+
+.sidebar ul li.active a {
+    color: white;
+}
+
+/* Đóng thanh menu */
+.sidebar.collapsed {
+    transform: translateX(-250px);
+}
+
+/* Nội dung chính */
+#main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Hiển thị nút hamburger trên màn hình nhỏ hơn */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    #main-content {
+        margin-left: 0;
+    }
+
+    .sidebar.collapsed {
+        transform: translateX(-200px);
+    }
+}
+
+/* Hiển thị thanh menu khi bị thu gọn */
+.sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+#main-content.expanded {
+    margin-left: 0;
+}

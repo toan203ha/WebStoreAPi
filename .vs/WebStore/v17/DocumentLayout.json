@@ -1,0 +1,180 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|c:\\users\\toan3\\onedrive\\desktop\\server task\\web\\webstore\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|c:\\users\\toan3\\onedrive\\desktop\\server task\\web\\webstore\\views\\oder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|solutionrelative:views\\oder\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|c:\\users\\toan3\\onedrive\\desktop\\server task\\web\\webstore\\controllers\\odercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|solutionrelative:controllers\\odercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|c:\\users\\toan3\\onedrive\\desktop\\server task\\web\\webstore\\services\\oder\\orderservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|solutionrelative:services\\oder\\orderservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|c:\\users\\toan3\\onedrive\\desktop\\server task\\web\\webstore\\models\\oder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|solutionrelative:models\\oder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|c:\\users\\toan3\\onedrive\\desktop\\server task\\web\\webstore\\views\\product\\editpro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{69F422B5-D920-4DB2-A433-2CC1B44113D2}|WebStore.csproj|solutionrelative:views\\product\\editpro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T18:44:20.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Views\\Oder\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Oder\\Index.cshtml",
+              "ToolTip": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Views\\Oder\\Index.cshtml",
+              "RelativeToolTip": "Views\\Oder\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAuwHkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-12T18:34:17.652Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Oder.cs",
+              "DocumentMoniker": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Models\\Oder.cs",
+              "RelativeDocumentMoniker": "Models\\Oder.cs",
+              "ToolTip": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Models\\Oder.cs",
+              "RelativeToolTip": "Models\\Oder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T18:16:39.878Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderServices.cs",
+              "DocumentMoniker": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Services\\Oder\\OrderServices.cs",
+              "RelativeDocumentMoniker": "Services\\Oder\\OrderServices.cs",
+              "ToolTip": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Services\\Oder\\OrderServices.cs",
+              "RelativeToolTip": "Services\\Oder\\OrderServices.cs",
+              "ViewState": "AQIAADoAAAAAAAAAAAAAwEAAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T18:16:14.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OderController.cs",
+              "DocumentMoniker": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Controllers\\OderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OderController.cs",
+              "ToolTip": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Controllers\\OderController.cs",
+              "RelativeToolTip": "Controllers\\OderController.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAiwFEAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T18:12:55.369Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EditPro.cshtml",
+              "DocumentMoniker": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Views\\Product\\EditPro.cshtml",
+              "RelativeDocumentMoniker": "Views\\Product\\EditPro.cshtml",
+              "ToolTip": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\Views\\Product\\EditPro.cshtml",
+              "RelativeToolTip": "Views\\Product\\EditPro.cshtml",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAFYAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-06T14:32:50.101Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

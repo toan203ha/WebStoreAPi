@@ -1,0 +1,34 @@
+﻿@model Users
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chi Tiết Người Dùng</title>
+</head>
+<body>
+    <h1>Chi Tiết Người Dùng</h1>
+
+     <p>ID: @(Model._id ?? "Chưa có ID")</p>
+
+     <p>Email: @(Model.Email ?? "Chưa có email")</p>
+
+     <p>Số điện thoại: @(Model.PhoneNumber ?? "Chưa có số điện thoại")</p>
+
+     <p>Mật khẩu: @(Model.Password ?? "Chưa có mật khẩu")</p>
+
+     @if (string.IsNullOrEmpty(Model.Img))
+    {
+        <p>Chưa có hình ảnh.</p>
+    }
+    else
+    {
+        <img src="http://localhost:3000/api/images/@Model._id" alt="Hình ảnh người dùng" style="width:100px;height:100px;" />
+    }
+
+     <p>Địa chỉ: @(Model.diaChi ?? "Chưa có địa chỉ")</p>
+
+     <p>Giới tính: @(Model.genderCus ?? "Chưa có thông tin giới tính")</p>
+
+     <p>Tên người dùng: @(Model.tenuser ?? "Chưa có tên người dùng")</p>
+</body>
+</html>
