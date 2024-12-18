@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Data.SqlTypes;
 
 namespace WebStore.Models
 {
@@ -7,30 +8,21 @@ namespace WebStore.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+
         public string? _id { get; set; }
-
-        [BsonElement("TEN")]
         public string? TEN { get; set; }
-
-        [BsonElement("PRICE")]
-        public int? PRICE { get; set; }
-
-        [BsonElement("SoluongTon")]
-        public int? SoluongTon { get; set; }
-
-        [BsonElement("DES")]
         public string? DES { get; set; }
-
-        [BsonElement("SoLuongGG")]
-        public int? SoLuongGG { get; set; }
-
-        [BsonElement("CateID")]
-        public string CateID { get; set; }
-
-        [BsonElement("MaNXB")]
-        public string MaNXB { get; set; }
-
-        [BsonElement("IMG")]
         public string? IMG { get; set; }
+        public string? Hinh_2 { get; set; }
+        public string? Hinh_3 { get; set; }
+        public string? Hinh_4 { get; set; }
+        public decimal? PRICE { get; set; }
+        public List<string>? CateID { get; set; }
+        public int? SoluongTon { get; set; }
+        public int? soLuongGG { get; set; }
+        public string? MaNXB { get; set; }
+        public DateTime? createdAt { get; set; }
+        public DateTime? updatedAt { get; set; }
+
     }
 }

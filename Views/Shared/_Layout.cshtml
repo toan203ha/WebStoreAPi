@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site-layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
+
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
@@ -26,18 +30,46 @@
                 <li><a href="@Url.Action("Index", "Home")">Thống Kê</a></li>
                 <li><a href="@Url.Action("Index", "Home")">Nhân Viên</a></li>
                 <li><a href="@Url.Action("Index", "Home")">Nhà xuất bản</a></li>
-                <li><a href="@Url.Action("Index", "Home")">Khuyễn Mãi</a></li>
+                <li><a href="@Url.Action("Index", "Home")">Khuyến Mãi</a></li>
                 <li><a href="@Url.Action("Index", "Home")">Danh Mục</a></li>
-
             </ul>
         </nav>
 
         <!-- Main Content -->
         <div id="main-content" class="flex-grow-1">
-            <!-- Hamburger Button for Large Screens -->
-            <button id="sidebarToggleLarge" class="" onclick="toggleSidebar()">
-                ☰
-            </button>
+            <!-- Navbar with Login Info -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <button id="sidebarToggleLarge" class="" onclick="toggleSidebar()">
+                        ☰
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <!-- Check if user is logged in -->
+                        
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <!-- Avatar -->
+                                        <img src="@Url.Content("~/images/user-avatar.png")" alt="User Avatar" class="rounded-circle" width="30" height="30" />
+                                        <span>Name</span> 
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                        <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Logout", "Account")">Logout</a></li>
+                                    </ul>
+                                </li>
+                      
+                                <li class="nav-item">
+                                    <a class="nav-link" href="@Url.Action("Login", "Login")">Login</a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
 
             <main role="main" class="pb-3">
                 @RenderBody()
@@ -46,10 +78,11 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="container" style="text-align:center">
             &copy; 2024 - WebStore - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

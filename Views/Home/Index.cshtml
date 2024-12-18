@@ -1,8 +1,83 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="~/css/StyleSheetHome.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <input type="text" class="search-bar" placeholder="Search...">
+        </header>
+        <section class="main-cards">
+            <div class="card">
+                <h3>Today Sale</h3>
+                <p class="sale">1000</p>
+            </div>
+            <div class="card">
+                <h3>Total Sale</h3>
+                <p class="sale">50,000</p>
+            </div>
+            <div class="card">
+                <h3>Total Orders</h3>
+                <p class="sale">200</p>
+            </div>
+            <div class="card">
+                <h3>Products Sold</h3>
+                <p class="sale">150</p>
+            </div>
+        </section>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <section class="charts">
+            <div class="chart">
+                <h3>Customer Fulfillment</h3>
+                <canvas id="customerChart"></canvas>
+            </div>
+            <div class="chart">
+                <h3>Earnings</h3>
+                <canvas id="earningsChart"></canvas>
+            </div>
+        </section>
+
+        <section class="tables">
+            <div class="table">
+                <h3>Top Products</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Popularity</th>
+                            <th>Sales</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Product 1</td>
+                            <td>High</td>
+                            <td>$5000</td>
+                        </tr>
+                        <tr>
+                            <td>Product 2</td>
+                            <td>Medium</td>
+                            <td>$4000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table">
+                <h3>Logging Order</h3>
+                <ul id="orderLog">
+                    <li>Order #1 - Date</li>
+                    <li>Order #2 - Date</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

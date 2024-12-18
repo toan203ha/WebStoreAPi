@@ -1,0 +1,77 @@
+﻿@using System.ComponentModel
+@model WebStore.Models.Oders
+
+
+
+<div class="container mt-4">
+
+    <form asp-action="EditOder" method="post">
+        <input type="hidden" asp-for="_id" />
+
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4>Edit Product</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form asp-action="EditOder" method="post">
+                            <input type="hidden" name="_id" value="@Model._id" />
+
+                            <div class="form-group">
+                                <label for="orderStatus">Trạng Thái</label>
+                                <select name="status" id="orderStatus" class="form-control">
+                                    @foreach (var status in Enum.GetValues(typeof(WebStore.Models.Enum.OrderStatus)))
+                                    {
+                                        <option value="@status" Model.status.ToString()>@status</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-sm">
+                                Cập nhật
+                            </button>
+                        </form>
+
+                        <form asp-action="EditOder" method="post">
+                            <input type="hidden" name="_id" value="@Model._id" />
+
+                            <div class="form-group">
+                                <label for="orderStatus">Trạng Thái</label>
+                                <select name="status" id="orderStatus" class="form-control">
+                                    @foreach (var status in Enum.GetValues(typeof(WebStore.Models.Enum.OrderStatus)))
+                                    {
+                                        var statusDescription = GetEnumDescription((WebStore.Models.Enum.OrderStatus)status);
+                                        <option value="@status" Model.status.ToString()>@status</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-sm">
+                                Cập nhật 2
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="@Url.Action("Index", "Product")" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@functions {
+    public string GetEnumDescription(WebStore.Models.Enum.OrderStatus status)
+    {
+        var field = status.GetType().GetField(status.ToString());
+        var attribute = (DescriptionAttribute)Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute));
+        return attribute == null ? status.ToString() : attribute.Description;
+    }
+}
+<!-- Optional: Add Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

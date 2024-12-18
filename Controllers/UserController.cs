@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using WebStore.Models;
 
@@ -13,64 +14,63 @@ public class UsersController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var users = await _apiService.GetAllUser();
+        // phân quyền
+        var token = HttpContext.Request.Cookies["authToken"];
+        if (string.IsNullOrEmpty(token))
+        {
+            return RedirectToAction("Login", "Auth"); 
+        }
+        //
+        var users = await _apiService.GetAllUser(token);
         return View(users);
     }
 
     public async Task<IActionResult> ThongTinTK(string id)
     {
-        var user = await _apiService.GetUserById(id);
-        return View(user);
+        try
+        {
+            var user = await _apiService.GetUserById(id);  
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return View(user);  
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error: {ex.Message}");
+            return StatusCode(500, "Internal Server Error");
+        }
     }
 
     public async Task<IActionResult> EditUser(string id)
     {
-        // Debug: Log thông tin ID
-        Console.WriteLine($"Debug: Entering EditUser GET method with ID: {id}");
-
         var user = await _apiService.GetUserById(id);
+        Console.Write(user);
 
-        // Debug: Kiểm tra nếu không tìm thấy người dùng
         if (user == null)
         {
-            Console.WriteLine($"Debug: User with ID: {id} not found.");
             return NotFound();
         }
-
-        // Debug: Log thông tin người dùng tìm thấy
-        Console.WriteLine($"Debug: User found - Email: {user.Email}, PhoneNumber: {user.PhoneNumber}");
         return View(user);
     }
 
     [HttpPost]
     public async Task<IActionResult> EditUser(Users user)
     {
-        // Debug: Log thông tin người dùng và trạng thái ModelState
-        Console.WriteLine($"Debug: Entering EditUser POST method with user ID: {user._id}");
-        Console.WriteLine($"Debug: ModelState is valid: {ModelState.IsValid}");
-
-        if (!ModelState.IsValid)
-        {
-            // Log all validation errors
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                Console.WriteLine($"Debug: ModelState Error - {error.ErrorMessage}");
-            }
-        }
-
         if (ModelState.IsValid)
         {
             var success = await _apiService.UpdateUser(user._id, user);
+            Console.WriteLine($"Debug: Received response with status code: {user._id}");
 
-            // Debug: Log kết quả cập nhật
             if (success)
             {
-                Console.WriteLine($"Debug: Successfully updated user with ID: {user._id}");
                 return RedirectToAction("Index");
             }
             else
             {
-                Console.WriteLine($"Debug: Update failed for user with ID: {user._id}");
                 ModelState.AddModelError("", "Cập nhật không thành công.");
             }
         }
@@ -107,6 +107,7 @@ public class UsersController : Controller
         }
     }
     // tạo người dùng
+    [HttpGet]
     public IActionResult CreateUser()
     {
         return View();
@@ -116,7 +117,6 @@ public class UsersController : Controller
     {
         if (ModelState.IsValid)
         {
-            Console.WriteLine($"Debug: ModelState is valid. Attempting to create user with Email: {user.Email}");
 
             var success = await _apiService.CreateUser(user);
             if (success)

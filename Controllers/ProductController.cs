@@ -14,7 +14,12 @@ namespace WebStore.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var users = await _proservice.GetAllPro();
+            var token = HttpContext.Request.Cookies["authToken"];
+            if (string.IsNullOrEmpty(token))
+            {
+                return RedirectToAction("Login", "Auth");
+            }
+            var users = await _proservice.GetAllPro(token);
             return View(users);
         }
 
@@ -39,26 +44,22 @@ namespace WebStore.Controllers
             // Debug: Log thông tin ID
             Console.WriteLine($"Debug: Entering EditUser GET method with ID: {id}");
 
-            var user = await _proservice.GetProById(id);
+            var pro = await _proservice.GetProById(id);
 
             // Debug: Kiểm tra nếu không tìm thấy 
-            if (user == null)
+            if (pro == null)
             {
-                Console.WriteLine($"Debug: User with ID: {id} not found.");
+                Console.WriteLine($"Debug: pro with ID: {id} not found.");
                 return NotFound();
             }
 
             // Debug: Log thông tin tìm thấy
-            Console.WriteLine($"Debug: User found - Email: {user.TEN}, PhoneNumber: {user.PRICE}");
-            return View(user);
+             return View(pro);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditPro(Product user)
+        public async Task<IActionResult> EditPro(Product pro)
         {
-            // Debug: Log thông tin và trạng thái ModelState
-            Console.WriteLine($"Debug: Entering EditUser POST method with user ID: {user._id}");
-            Console.WriteLine($"Debug: ModelState is valid: {ModelState.IsValid}");
 
             if (!ModelState.IsValid)
             {
@@ -71,17 +72,17 @@ namespace WebStore.Controllers
 
             if (ModelState.IsValid)
             {
-                var success = await _proservice.UpdatePro(user._id, user);
+                var success = await _proservice.UpdatePro(pro._id, pro);
 
                 // Debug: Log kết quả cập nhật
                 if (success)
                 {
-                    Console.WriteLine($"Debug: Successfully updated user with ID: {user._id}");
+                    Console.WriteLine($"Debug: Successfully updated pro with ID: {pro._id}");
                     return RedirectToAction("Index");
                 }
                 else
                 {
-                    Console.WriteLine($"Debug: Update failed for user with ID: {user._id}");
+                    Console.WriteLine($"Debug: Update failed for pro with ID: {pro._id}");
                     ModelState.AddModelError("", "Cập nhật không thành công.");
                 }
             }
@@ -89,7 +90,7 @@ namespace WebStore.Controllers
             {
                 Console.WriteLine("Debug: ModelState is not valid.");
             }
-            return View(user);
+            return View(pro);
         }
 
 
@@ -127,7 +128,7 @@ namespace WebStore.Controllers
         {
             if (ModelState.IsValid)
             {
- 
+
                 var success = await _proservice.CreatePro(user);
                 if (success)
                 {

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<WebStore.Models.Oders>
+﻿@using System.ComponentModel
+@model IEnumerable<WebStore.Models.Oders>
 
 @{
     ViewData["Title"] = "Danh sách đơn hàng";
@@ -6,116 +7,78 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<!-- Menu lọc -->
-<div class="filter">
-    <button class="filter-button" data-filter="all">Tất Cả</button>
-    <button class="filter-button" data-filter="delivered" data-value="true">Delivered</button>
-    <button class="filter-button" data-filter="canceled" data-value="true">Canceled</button>
-    <button class="filter-button" data-filter="pending" data-value="true">Pending Confirmation</button>
-</div>
 
+<style>
+    .cutstring {
+        max-width: 150px; /* Giới hạn chiều rộng của các ô */
+        white-space: nowrap; /* Ngừng xuống dòng */
+        overflow: hidden; /* Ẩn phần nội dung bị vượt quá */
+        text-overflow: ellipsis; /* Hiển thị ba chấm */
+    }
+</style>
 <table class="table">
     <thead>
         <tr>
-            <th>Order ID</th>
-            <th>Order Date</th>
-             <th>Total Price</th>
-            <th>Delivered</th>
-            <th>Canceled</th>
-            <th>Pending Confirmation</th>
-            <th>Promotion Code</th>
-            <th>Actions</th>
+            <th>Mã Đơn</th>
+            <th>Ngày đặt</th>
+            <th>Thành Tiền</th>
+            <th>Trạng Thái</th>
+            <th>Mã GIẢM GIÁ</th>
+            <th>Chức năng</th>
         </tr>
     </thead>
     <tbody id="ordersTable">
         @foreach (var order in Model)
         {
             <tr data-id="@order._id">
-                <td>@order._id</td>
-                <td>@order.ngayDat?.ToString("dd/MM/yyyy")</td>
-                 <td>@order.thanhTien?.ToString("C")</td>
-                <td>@order.daGiao?.ToString()</td>
-                <td>@order.daHuy?.ToString()</td>
-                <td>@order.dangChoXacNhan?.ToString()</td>
-                <td>@order.maKM</td>
+                <td class="cutstring">@order._id</td>
+                <td class="cutstring">@order.ngayDat?.ToString("dd/MM/yyyy")</td>
+                <td class="cutstring">@order.thanhTien?.ToString("C")</td>
+                <td class="cutstring">@order.status?.ToString()</td>
+                <td class="cutstring">@order.maKM</td>
                 <td>
-                    <form asp-action="Odercancel" method="post" style="display:inline;">
+                    <form asp-action="#" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="@order._id" />
                         <button type="submit" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash"></i> Hủy Đơn hàng
                         </button>
                     </form>
-                    <form asp-action="Oderrestore" method="post" style="display:inline;">
+                    <form asp-action="#" method="post" style="display:inline;">
                         <input type="hidden" name="id" value="@order._id" />
                         <button type="submit" class="btn btn-success btn-sm">
-                            <i class="fas fa-undo"></i> Khôi phục 1
+                            <i class="fas fa-undo"></i> Khôi phục
                         </button>
                     </form>
+                    <form asp-action="#" method="get" style="display:inline;">
+                        <input type="hidden" name="id" value="@order._id" />
+                        <button type="submit" class="btn btn-success btn-sm">
+                            <i class="fas fa-undo"></i> Chi Tiết
+                        </button>
+                    </form>
+                    <form asp-action="EditOder" method="post">
+                        <input type="hidden" name="_id" value="@order._id" />
+
+                        <div class="form-group">
+                            <label for="orderStatus">Trạng Thái</label>
+                            <select name="status" id="orderStatus" class="form-control">
+                                @foreach (var status in Enum.GetValues(typeof(WebStore.Models.Enum.OrderStatus)))
+                                {
+                                     <option value="@status" Model.status.ToString()>@status</option>
+                                }
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-sm">
+                            Cập nhật 2
+                        </button>
+                    </form>
+
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const filterButtons = document.querySelectorAll('.filter-button');
 
-            async function fetchOrders(filters) {
-                const queryParams = new URLSearchParams(filters).toString();
-                const response = await fetch(`/Oder/Filter?${queryParams}`);
-                const orders = await response.json();
 
-                const tableBody = document.getElementById('ordersTable');
-                tableBody.innerHTML = '';
-
-                orders.forEach(order => {
-                    const row = document.createElement('tr');
-                    row.setAttribute('data-id', order._id);
-                    row.innerHTML = `
-                                <td>${order._id}</td>
-                                <td>${new Date(order.ngayDat).toLocaleDateString('en-GB')}</td>
-                                <td>${order.ngayNhan ? new Date(order.ngayNhan).toLocaleDateString('en-GB') : ''}</td>
-                                <td>${order.thanhTien.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
-                                <td>${order.daGiao}</td>
-                                <td>${order.daHuy}</td>
-                                <td>${order.dangChoXacNhan}</td>
-                                <td>${order.maKM}</td>
-                                <td>
-                                    <form asp-action="Odercancel" method="post" style="display:inline;">
-                                        <input type="hidden" name="id" value="${order._id}" />
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                            <i class="fas fa-trash"></i> Hủy Đơn hàng
-                                        </button>
-                                    </form>
-                                    <form asp-action="Oderrestore" method="post" style="display:inline;">
-                                        <input type="hidden" name="id" value="${order._id}" />
-                                        <button type="submit" class="btn btn-success btn-sm">
-                                            <i class="fas fa-undo"></i> Khôi phục
-                                        </button>
-                                    </form>
-                                </td>
-                            `;
-                    tableBody.appendChild(row);
-                });
-            }
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const filterType = button.getAttribute('data-filter');
-                    const filterValue = button.getAttribute('data-value');
-                    const filters = {};
-
-                    if (filterType === 'all') {
-                        fetchOrders({});
-                        return;
-                    }
-
-                    filters[filterType] = filterValue;
-                    fetchOrders(filters);
-                });
-            });
-        });
-    </script>
-}
+ 

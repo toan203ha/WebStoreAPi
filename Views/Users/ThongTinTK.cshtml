@@ -1,34 +1,45 @@
-﻿@model Users
+﻿@model WebStore.Models.Users
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Chi Tiết Người Dùng</title>
-</head>
-<body>
-    <h1>Chi Tiết Người Dùng</h1>
+@{
+    ViewData["Title"] = "Chi tiết người dùng";
+}
 
-     <p>ID: @(Model._id ?? "Chưa có ID")</p>
+<h1>@ViewData["Title"]</h1>
 
-     <p>Email: @(Model.Email ?? "Chưa có email")</p>
+<div class="user-details">
+    <div class="form-group">
+        <label><strong>Tên người dùng:</strong></label>
+        <p>@Model.fullNameCus</p>
+    </div>
 
-     <p>Số điện thoại: @(Model.PhoneNumber ?? "Chưa có số điện thoại")</p>
+    <div class="form-group">
+        <label><strong>Địa chỉ:</strong></label>
+        <p>@Model.addressCus</p>
+    </div>
 
-     <p>Mật khẩu: @(Model.Password ?? "Chưa có mật khẩu")</p>
+    <div class="form-group">
+        <label><strong>Email:</strong></label>
+        <p>@Model.emailCus</p>
+    </div>
 
-     @if (string.IsNullOrEmpty(Model.Img))
-    {
-        <p>Chưa có hình ảnh.</p>
-    }
-    else
-    {
-        <img src="http://localhost:3000/api/images/@Model._id" alt="Hình ảnh người dùng" style="width:100px;height:100px;" />
-    }
+    <div class="form-group">
+        <label><strong>Số điện thoại:</strong></label>
+        <p>@Model.phoneNumCus</p>
+    </div>
 
-     <p>Địa chỉ: @(Model.diaChi ?? "Chưa có địa chỉ")</p>
+    <div class="form-group">
+        <label><strong>Giới tính:</strong></label>
+        <p>@Model.genderCus</p>
+    </div>
 
-     <p>Giới tính: @(Model.genderCus ?? "Chưa có thông tin giới tính")</p>
+    <div class="form-group">
+        <label><strong>Xếp hạng:</strong></label>
+        <p>@Model.rank</p>
+    </div>
 
-     <p>Tên người dùng: @(Model.tenuser ?? "Chưa có tên người dùng")</p>
-</body>
-</html>
+    <div class="form-group">
+        <a href="@Url.Action("Index", "Users")" class="btn btn-secondary">Quay lại danh sách</a>
+        <a href="@Url.Action("EditUser", "Users", new { id = Model._id })" class="btn btn-primary">Chỉnh sửa</a>
+        <a href="@Url.Action("Delete", "Users", new { id = Model._id })" class="btn btn-danger">Xóa</a>
+    </div>
+</div>

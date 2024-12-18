@@ -2,11 +2,15 @@
   "Files": [
     {
       "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\WebStore.bundle.scp.css",
-      "PackagePath": "staticwebassets\\WebStore.bundle.scp.css"
+      "PackagePath": "staticwebassets\\WebStore.0ww0bv6321.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\wwwroot\\css\\CreatePro.css",
       "PackagePath": "staticwebassets\\css\\CreatePro.css"
+    },
+    {
+      "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\wwwroot\\css\\StyleSheetHome.css",
+      "PackagePath": "staticwebassets\\css\\StyleSheetHome.css"
     },
     {
       "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\wwwroot\\css\\site-layout.css",
@@ -15,6 +19,10 @@
     {
       "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
       "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\wwwroot\\favicon.ico",
@@ -251,6 +259,10 @@
     {
       "Id": "C:\\Users\\toan3\\OneDrive\\Desktop\\Server task\\web\\WebStore\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.WebStore.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.WebStore.Microsoft.AspNetCore.StaticWebAssets.props",

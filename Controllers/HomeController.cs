@@ -15,6 +15,21 @@ namespace WebStore.Controllers
 
         public IActionResult Index()
         {
+            // Lấy dữ liệu từ session
+            string token = HttpContext.Session.GetString("Token");
+
+            // Kiểm tra nếu token có tồn tại trong session hay không
+            if (token != null)
+            {
+                // Thực hiện hành động với token
+                Console.WriteLine("Token: " + token);
+            }
+            else
+            {
+                // Nếu không có token trong session
+                Console.WriteLine("No token found in session.");
+            }
+
             return View();
         }
 

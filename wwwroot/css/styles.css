@@ -1,0 +1,38 @@
+﻿/* Style chung cho navbar */
+.navbar {
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+}
+
+/* Style cho dropdown avatar */
+.nav-item .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+    /* Style cho avatar người dùng */
+    .nav-item .dropdown-toggle img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+
+/* Style cho dropdown menu */
+.dropdown-menu {
+    min-width: 160px;
+}
+
+.dropdown-item {
+    font-size: 14px;
+    color: #333;
+}
+
+    .dropdown-item:hover {
+        background-color: #f1f1f1;
+    }
+
+/* Style cho menu khi hover */
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
